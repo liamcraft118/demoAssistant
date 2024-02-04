@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "stardew_valley_assistant",
+            "cwd": "stardew_valley_assistant",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "stardew_valley_assistant (profile mode)",
+            "cwd": "stardew_valley_assistant",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "stardew_valley_assistant (release mode)",
+            "cwd": "stardew_valley_assistant",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
