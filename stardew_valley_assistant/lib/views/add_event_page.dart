@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stardew_valley_assistant/controllers/add_event_controller.dart';
+import 'package:stardew_valley_assistant/views/custom_event_page.dart';
 import 'package:stardew_valley_assistant/views/plantable_page.dart';
 
 class AddEventPage extends GetView<AddEventController> {
@@ -15,6 +16,9 @@ class AddEventPage extends GetView<AddEventController> {
         children: [
           _buildTile("plantable", () {
             Get.to(() => const PlantablePage());
+          }),
+          _buildTile("custom", () {
+            Get.to(() => const CustomEventPage());
           })
         ],
       ),

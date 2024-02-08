@@ -15,12 +15,13 @@ class ScheduleController extends GetxController {
   }
 
   void addPlantableEvent(Plantable plantable) {
-    final number = schedule.number.value;
+    final totalDay = schedule.totalDay();
     final name = plantable.name;
     final growthTime = int.parse(plantable.growthTime);
     for (var i = 0; i < growthTime; i++) {
       final event =
-          ScheduleEvent(name, i + number + 1, ScheduleEventType.plantable);
+          ScheduleEvent(name, totalDay + i, ScheduleEventType.plantable);
+      event.remark = (growthTime - i - 1).toString();
       schedule.addEvent(event);
     }
   }

@@ -19,14 +19,7 @@ class SchedulePage extends GetView<ScheduleController> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: Obx(() {
-        final schedule = controller.schedule;
-        final season = schedule.season();
-        final year = schedule.year();
-        final day = schedule.day();
-        final totalDay = schedule.totalDay();
-        return Text("第$year年 $season 第$day天, $totalDay");
-      }),
+      title: _buildTitle(),
       actions: [
         IconButton(
           onPressed: () {
@@ -38,7 +31,7 @@ class SchedulePage extends GetView<ScheduleController> {
     );
   }
 
-  Widget _buildTitle() {
+  Obx _buildTitle() {
     return Obx(() {
       final schedule = controller.schedule;
       final season = schedule.season();
@@ -67,7 +60,14 @@ class SchedulePage extends GetView<ScheduleController> {
           itemBuilder: (context, index) {
             final event = events[index];
             return ListTile(
-              title: Text(event.name),
+              title: Row(
+                children: [
+                  Expanded(
+                    child: Text(event.name),
+                  ),
+                  if (event.remark != null) Text(event.remark)
+                ],
+              ),
               onTap: () {
                 print("$index tapped");
               },
