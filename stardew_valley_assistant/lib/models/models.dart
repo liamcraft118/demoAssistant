@@ -7,6 +7,15 @@ enum CalendarType {
   event,
 }
 
+enum CollectionType {
+  @JsonValue('shipped_item')
+  shippedItem,
+  fish,
+  artifact,
+  mineral,
+  cooking,
+}
+
 @JsonSerializable()
 class Calendar {
   final int day;
@@ -29,4 +38,18 @@ class Plantable {
   factory Plantable.fromJson(Map<String, dynamic> json) =>
       _$PlantableFromJson(json);
   Map<String, dynamic> toJson() => _$PlantableToJson(this);
+}
+
+@JsonSerializable()
+class CollectionModel {
+  final String name;
+  final String link;
+  @JsonKey(name: 'icon_link')
+  final String iconLink;
+  final CollectionType type;
+
+  CollectionModel(this.name, this.link, this.iconLink, this.type);
+  factory CollectionModel.fromJson(Map<String, dynamic> json) =>
+      _$CollectionModelFromJson(json);
+  Map<String, dynamic> toJson() => _$CollectionModelToJson(this);
 }

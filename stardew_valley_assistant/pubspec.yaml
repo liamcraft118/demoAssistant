@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   get:
   json_annotation: ^4.8.1
+  shared_preferences: ^2.2.2
+  cached_network_image: ^3.3.1
 
 
 

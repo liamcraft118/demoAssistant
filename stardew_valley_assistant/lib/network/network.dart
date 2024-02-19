@@ -30,4 +30,14 @@ class Network {
     }
     return plantables;
   }
+
+  static Future<List<CollectionModel>> findCollections() async {
+    final response = await ApiClient.instance.get('/find_collections');
+    List<CollectionModel> collections = [];
+    for (var json in response.body) {
+      final collection = CollectionModel.fromJson(json);
+      collections.add(collection);
+    }
+    return collections;
+  }
 }

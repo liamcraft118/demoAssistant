@@ -33,3 +33,27 @@ Map<String, dynamic> _$PlantableToJson(Plantable instance) => <String, dynamic>{
       'name': instance.name,
       'growth_time': instance.growthTime,
     };
+
+CollectionModel _$CollectionModelFromJson(Map<String, dynamic> json) =>
+    CollectionModel(
+      json['name'] as String,
+      json['link'] as String,
+      json['icon_link'] as String,
+      $enumDecode(_$CollectionTypeEnumMap, json['type']),
+    );
+
+Map<String, dynamic> _$CollectionModelToJson(CollectionModel instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'link': instance.link,
+      'icon_link': instance.iconLink,
+      'type': _$CollectionTypeEnumMap[instance.type]!,
+    };
+
+const _$CollectionTypeEnumMap = {
+  CollectionType.shippedItem: 'shipped_item',
+  CollectionType.fish: 'fish',
+  CollectionType.artifact: 'artifact',
+  CollectionType.mineral: 'mineral',
+  CollectionType.cooking: 'cooking',
+};
